@@ -14,9 +14,10 @@ SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY 
 
 SELECT * FROM employees WHERE last_name LIKE '%e%' ORDER BY emp_no;
 
-SELECT DISTINCT last_name FROM employees ORDER BY last_name DESC LIMIT 10;
+SELECT CONCAT(first_name, ' ', last_name) as full_name FROM employees WHERE last_name LIKE 'E%' OR last_name LIKE '%e';
 
-SELECT emp_no FROM salaries ORDER BY salary LIMIT 5;
+SELECT * FROM employees WHERE month(birth_date) = 12 AND day(birth_date) = 25;
 
-SELECT emp_no FROM salaries ORDER BY salary LIMIT 4 OFFSET 46;
+SELECT * FROM employees WHERE month(birth_date) = 12 AND day(birth_date) = 25 AND year(hire_date) BETWEEN 1990 AND 1999;
 
+SELECT * FROM employees WHERE month(birth_date) = 12 AND day(birth_date) = 25 AND year(hire_date) BETWEEN 1990 AND 1999 ORDER BY birth_date, hire_date DESC LIMIT 1;
